@@ -8,9 +8,9 @@ int main ()
 {
     int n =5;
   int vertexcount;
-  cin >> vertexcount;
+ // cin >> vertexcount;
   int edgecount;
-  cin >> edgecount;
+  //cin >> edgecount;
   vector < vector < int >>adj;
   /*adj[0].push_back (1);
   adj[0].push_back (2);
@@ -44,6 +44,16 @@ int main ()
     edges.push_back(edge);
     edge.clear();*/
   }
+  cout<<edges[1][2]<<endl;
+  for(auto e: edges)
+  {
+      for(int i=0;i<5;i++)
+      {
+          cout<<e[i];
+      }
+      cout<<endl;
+  }
+  
   int count =0;
   //cout<<edges[2][3]<<edges[0][1]<<edges[4][1];
   //map<int, int,int> mp;
@@ -68,6 +78,7 @@ int main ()
       }
   }*/
   //cout<<count;
+  
   for(int i =0;i<5;i++)
   for(int j=i+1;j<5;j++)
   {
@@ -75,7 +86,7 @@ int main ()
       {
           for(int k=j;k<n;k++)
           {
-              if(edges[i][k]&& edges[j][k])
+              if(edges[i][k] && edges[j][k])
               {
                   count++;
               }
@@ -87,4 +98,5 @@ int main ()
 
   return 0;
 }
+
 
