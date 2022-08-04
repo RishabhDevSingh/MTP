@@ -38,10 +38,28 @@ class Graph
 		// labelmap a - 1 , b - 2   etypemap c-o - 2
 		void pushEdge ( int  u , int v); // adds an edge to the graph 
 		void displayGraph(); // prints details of the graph
-		void triangles(vector<vector<int>> & edgemat , vector<int> & edges );
+		void triangles();
 	};
-	void Graph::triangles(vector<vector<int>> & edgemat , vector<int> & edges)
+	void Graph::triangles ()
 	{
+	int count = 0;
+	for(auto i: edges)
+	{
+		if(i.first<i.second)
+		{
+			for(int j =i.second;j<5;j++)
+			{
+				if(edgemat[i.first][j] && edgemat[i.second][j])
+				{
+				   count++;
+				}
+			}
+			
+		}
+	}
+	cout<<count;
+	
+		
 		
 	}
 	
@@ -122,18 +140,19 @@ class Graph
 }
 int main()
 {
-	cout<<8;
+	
 	Graph g1 ;
 	map< char, int > global_vrtxlbl_map ;
     map<string, int> global_edgeType_map; 
 	g1.readGraph(5, global_vrtxlbl_map ,global_edgeType_map );
-	cout<<g1.degrees[0];
+	
 	for(auto i : g1.edges)
 	{
 		cout<<i.first<<i.second<<" ";
 	}
-	int count=0;
-	for(auto i: g1.edges)
+	g1.triangles();
+	
+/*	for(auto i: g1.edges)
 	{
 		if(i.first<i.second)
 		{
@@ -147,7 +166,7 @@ int main()
 			
 		}
 	}
-	cout<<count;
+	cout<<count;*/
 	
 	
 	return 0 ;
